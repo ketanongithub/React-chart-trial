@@ -1,0 +1,27 @@
+:root {
+  --header-height: 60px;
+  --footer-height: 48px;
+  --sidebar-width: 240px;
+  --color-header: #1f2937;
+  --color-sidebar: #111827;
+  --color-footer: #1f2937;
+  --color-body: #f3f4f6;
+  --color-text-light: #f9fafb;
+  --color-accent: #3b82f6;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  color: #111827;
+}
