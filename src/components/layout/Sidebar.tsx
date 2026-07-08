@@ -1,17 +1,30 @@
-const NAV_ITEMS = ['Dashboard', 'Reports', 'Users', 'Settings']
+import { DATASET_OPTIONS, type DatasetKey } from '../../data/chartData'
 
-export default function Sidebar() {
+type SidebarProps = {
+  selected: DatasetKey
+  onChange: (value: DatasetKey) => void
+}
+
+export default function Sidebar({ selected, onChange }: SidebarProps) {
   return (
     <aside className="sidebar">
-      <nav>
-        <ul className="sidebar__nav">
-          {NAV_ITEMS.map((item) => (
-            <li key={item} className="sidebar__nav-item">
-              {item}
-            </li>
+      <div className="sidebar__section">
+        <label htmlFor="dataset" className="sidebar__label">
+          Dataset
+        </label>
+        <select
+          id="dataset"
+          className="sidebar__select"
+          value={selected}
+          onChange={(e) => onChange(e.target.value as DatasetKey)}
+        >
+          {DATASET_OPTIONS.map((opt) => (
+            <option key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
           ))}
-        </ul>
-      </nav>
+        </select>
+      </div>
     </aside>
   )
 }
