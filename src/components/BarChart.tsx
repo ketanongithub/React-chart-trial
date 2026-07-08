@@ -1,5 +1,12 @@
 import Highcharts from 'highcharts'
-import HighchartsReact from 'highcharts-react-official'
+import HighchartsReactImport from 'highcharts-react-official'
+
+// highcharts-react-official ships a CommonJS/UMD build. Under Vite's ESM
+// interop the component can arrive wrapped as `{ default: Component }`, so
+// unwrap it to get the actual React component.
+const HighchartsReact =
+  (HighchartsReactImport as unknown as { default?: typeof HighchartsReactImport })
+    .default ?? HighchartsReactImport
 
 type BarChartProps = {
   title: string
